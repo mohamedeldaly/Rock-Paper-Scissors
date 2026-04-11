@@ -12,18 +12,23 @@ function getHumanChoice() {
   let choice = prompt("choose rock, paper or scissors");
   return choice;
 }
-let humanScore = 0;
-let computerScore = 0;
-function playRound(humanChoice, computerChoice) {
-  if (
-    (humanChoice.toLowerCase() === "rock" && computerChoice === "scissors") ||
-    (humanChoice.toLowerCase() === "paper" && computerChoice === "rock") ||
-    (humanChoice.toLowerCase() === "scissors" && computerChoice === "paper")
-  ) {
-    console.log("you win");
-    humanScore++;
-  } else {
-    console.log(`you lose ${computerChoice} beat ${humanChoice}`);
-    computerScore++;
+function playGame() {
+  let humanScore = 0;
+  let computerScore = 0;
+  function playRound(humanChoice, computerChoice) {
+    if (
+      (humanChoice.toLowerCase() === "rock" && computerChoice === "scissors") ||
+      (humanChoice.toLowerCase() === "paper" && computerChoice === "rock") ||
+      (humanChoice.toLowerCase() === "scissors" && computerChoice === "paper")
+    ) {
+      console.log("you win");
+      humanScore++;
+    } else {
+      console.log(`you lose ${computerChoice} beat ${humanChoice}`);
+      computerScore++;
+    }
+  }
+  if (humanScore + computerScore <= 5) {
+    playRound(getHumanChoice(), getComputerChoice());
   }
 }
